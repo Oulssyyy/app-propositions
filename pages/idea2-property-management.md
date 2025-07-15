@@ -63,6 +63,20 @@ transition: slide-up
 	</div>
 	<div 
 		v-motion
+		:initial="{ y: 40, opacity: 0, scale: 0.95 }"
+		:enter="{ y: 0, opacity: 1, scale: 1, transition: { delay: 600, duration: 600, type: 'spring' } }"
+		class="bg-yellow-100 p-6 rounded-lg"
+	>
+		<div class="flex items-center mb-4">
+			<carbon:document-tasks class="text-yellow-500 mr-3 text-2xl" />
+			<h3 class="text-xl font-bold text-yellow-700">情報の更新漏れ・管理ミス</h3>
+		</div>
+		<p class="text-gray-700">
+			物件情報や空室状況の更新が手作業のため、情報の抜けや誤りが発生しやすく、管理の信頼性が低下しています。
+		</p>
+	</div>
+	<!-- <div 
+		v-motion
 		:initial="{ x: 60, opacity: 0, scale: 0.9 }"
 		:enter="{ x: 0, opacity: 1, scale: 1, transition: { delay: 600, duration: 600, type: 'spring' } }"
 		class="bg-yellow-100 p-6 rounded-lg"
@@ -74,7 +88,7 @@ transition: slide-up
 		<p class="text-gray-700">
 			物件の準備状況（清掃、修繕、リノベーションなど）の管理が煩雑なため、不必要な空室期間が発生し、収益機会を逃す可能性があります。
 		</p>
-	</div>
+	</div> -->
 </div>
 
 ---
@@ -109,7 +123,7 @@ layoutClass: gap-8
 		</div>
 	</div>
 	<div class="flex-1 space-y-4">
-		<div
+		<!-- <div
 			v-motion
 			:initial="{ x: 80, y: 40, opacity: 0, scale: 0.8 }"
 			:enter="{ x: 0, y: 0, opacity: 1, scale: 1, transition: { delay: 600, duration: 600, type: 'spring' } }"
@@ -118,6 +132,16 @@ layoutClass: gap-8
 			<carbon:flow class="text-purple-500 text-2xl mb-2" />
 			<h3 class="font-bold text-lg mb-2">リノベーション・準備ワークフロー管理</h3>
 			<p class="text-sm opacity-80">物件の清掃、修繕、リノベーションなどのタスク進捗管理と担当者割り当て</p>
+		</div> -->
+		<div
+			v-motion
+			:initial="{ x: 80, y: 40, opacity: 0, scale: 0.8 }"
+			:enter="{ x: 0, y: 0, opacity: 1, scale: 1, transition: { delay: 600, duration: 600, type: 'spring' } }"
+			class="feature-card"
+		>
+			<carbon:building class="text-orange-500 text-2xl mb-2" />
+			<h3 class="font-bold text-lg mb-2">物件情報の一元管理</h3>
+			<p class="text-sm opacity-80">物件の基本情報、写真、図面、契約履歴などを集約して管理</p>
 		</div>
 		<div
 			v-motion
@@ -125,9 +149,9 @@ layoutClass: gap-8
 			:enter="{ x: 0, y: 0, opacity: 1, scale: 1, transition: { delay: 800, duration: 600, type: 'spring' } }"
 			class="feature-card"
 		>
-			<carbon:building class="text-orange-500 text-2xl mb-2" />
-			<h3 class="font-bold text-lg mb-2">物件情報の一元管理</h3>
-			<p class="text-sm opacity-80">物件の基本情報、写真、図面、契約履歴などを集約して管理</p>
+			<carbon:notification class="text-purple-500 text-2xl mb-2" />
+			<h3 class="font-bold text-lg mb-2">自動アラート・通知機能</h3>
+			<p class="text-sm opacity-80">空室発生や情報更新時に関係者へ自動で通知し、迅速な対応を促進</p>
 		</div>
 	</div>
 </div>

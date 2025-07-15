@@ -12,8 +12,9 @@ drawings:
 transition: slide-left
 mdc: true
 colorSchema: light
+favicon: /assets/stellarforce.png
 ---
-<div class="absolute inset-0 bg-white bg-opacity-40 pointer-events-none z-10 flex flex-col items-center justify-center">   
+<div class="absolute inset-0 bg-white bg-opacity-80 pointer-events-none z-10 flex flex-col items-center justify-center">   
   <h1 
     class="text-4xl font-bold mb-4 text-black"
     v-motion
