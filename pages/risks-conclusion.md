@@ -92,7 +92,7 @@ transition: slide-down
 	>
 		<div class="bg-white bg-opacity-90 rounded-xl p-2 shadow-lg">
 		<img 
-			src="/assets/stellarforce.png" 
+			src="../assets/stellarforce.png" 
 			alt="Stellar Force" 
 			class="h-16 w-auto drop-shadow-xl"
 			v-motion

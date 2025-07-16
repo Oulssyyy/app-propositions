@@ -1,6 +1,6 @@
 ---
 theme: seriph
-background: ../assets/estate.jpg
+background: /assets/estate.jpg
 title: ステラーフォース向けアプリケーション提案
 info: |
   ## ステラーフォース向けアプリケーション提案
