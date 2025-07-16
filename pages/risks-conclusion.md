@@ -65,10 +65,10 @@ background: /estate.jpg
 transition: slide-down
 ---
 
-<div class="fixed inset-0 flex flex-col items-center justify-center" style="background-image: url('/estate.jpg'); background-size: cover; background-position: center; margin: 0; padding: 0;">
+<div class="fixed inset-0 flex flex-col items-center justify-center background-slide">
 	<div class="absolute inset-0 bg-white bg-opacity-70"></div>
 	<h1 
-		class="text-4xl font-bold mb-4 text-black"
+		class="text-4xl font-bold mb-4 text-black relative z-10"
 		v-motion
 		:initial="{ y: -40, opacity: 0 }"
 		:enter="{ y: 0, opacity	: 1, transition: { delay: 200, duration: 700 } }"
@@ -81,11 +81,12 @@ transition: slide-down
 		v-motion
 		:initial="{ y: 50, opacity: 0 }"
 		:enter="{ y: 0, opacity: 1, transition: { delay: 700, duration: 800 } }"
+		class="relative z-10"
 	>
 		<h2 class="text-2xl" style="color: #0d47a1;">ご質問やご意見をお聞かせください</h2>
 	</div>
 	<div 
-		class="mt-8 flex justify-center"
+		class="mt-8 flex justify-center relative z-10"
 		v-motion
 		:initial="{ scale: 0.8, opacity: 0 }"
 		:enter="{ scale: 1, opacity: 1, transition: { delay: 1200, duration: 600, type: 'spring' } }"
@@ -102,3 +103,23 @@ transition: slide-down
 		</div>
 	</div>
 </div>
+
+<style>
+.background-slide {
+	margin: 0;
+	padding: 0;
+}
+
+.background-slide::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-image: url('/estate.jpg');
+	background-size: cover;
+	background-position: center;
+	z-index: -1;
+}
+</style>
