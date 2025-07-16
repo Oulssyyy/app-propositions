@@ -61,11 +61,11 @@ class="mt-8"
 </div>
 
 ---
-background: assets/estate.jpg
+background: /estate.jpg
 transition: slide-down
 ---
 
-<div class="fixed inset-0 flex flex-col items-center justify-center" style="background-image: url('assets/estate.jpg'); background-size: cover; background-position: center; margin: 0; padding: 0;">
+<div class="fixed inset-0 flex flex-col items-center justify-center" style="background-image: url('/estate.jpg'); background-size: cover; background-position: center; margin: 0; padding: 0;">
 	<div class="absolute inset-0 bg-white bg-opacity-70"></div>
 	<h1 
 		class="text-4xl font-bold mb-4 text-black"
