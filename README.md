@@ -4,6 +4,15 @@
 
 ## 使用方法
 
+### オンラインで閲覧
+
+GitHub Pagesで公開されているプレゼンテーションを直接閲覧できます：
+
+🌐 **[アプリケーション提案を見る](https://oulssyyy.github.io/app-propositions/)**  
+`https://oulssyyy.github.io/app-propositions/`
+
+### ローカルでの実行
+
 スライドショーを開始するには：
 
 - `pnpm install` - 依存関係をインストール
