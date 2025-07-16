@@ -15,8 +15,8 @@ GitHub Pagesで公開されているプレゼンテーションを直接閲覧�
 
 スライドショーを開始するには：
 
-- `pnpm install` - 依存関係をインストール
-- `pnpm dev` - 開発サーバーを起動
+- `npm install` - 依存関係をインストール
+- `npm run dev` - 開発サーバーを起動
 - <http://localhost:3030> にアクセス
 
 ## 内容
