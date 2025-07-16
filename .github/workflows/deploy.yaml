@@ -1,20 +1,58 @@
 name: Deploy pages
-on: push
+
+on:
+  push:
+    branches:
+      - main # Or 'master', depending on your default branch
+  workflow_dispatch: # Allows manual triggering of the workflow
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+defaults:
+  run:
+    shell: bash
+
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
+    env:
+      NODE_VERSION: 20 # You might need to adjust this to a compatible Node.js version
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
-          node-version: '14'
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm' # Or 'yarn', 'pnpm' if you use them
+          cache-dependency-path: 'package-lock.json' # Or 'yarn.lock', 'pnpm-lock.yaml'
+
       - name: Install dependencies
-        run: npm install
-      - name: Build
-        run: npm run build
-      - name: Deploy pages
-        uses: crazy-max/ghaction-github-pages@v2
+        run: npm install # Or 'yarn install', 'pnpm install'
+
+      - name: Build Slidev
+        run: npm run build # This will use the 'build' script defined in your package.json
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          build_dir: dist
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          path: ./dist # The directory where Slidev builds the static files
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
